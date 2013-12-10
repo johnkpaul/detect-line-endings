@@ -11,9 +11,15 @@ var lineEndings = {
   'unix': '\n',
   'dos': '\r\n'
 };
+var legacyLineEndings = [
+  'mac'
+];
 
-module.exports = exports = function(str){
+module.exports = exports = function(str, legacy){
   for(var platform in regexes){
+    if (!legacy && (platform in legacyLineEndings)){
+      continue;
+    }
     var regex = regexes[platform];
     if(regex.test(str)){
       return {
