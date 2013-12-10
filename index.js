@@ -1,15 +1,15 @@
 'use strict';
 
 var regexes = {
-  'mac': /\r[^\n]/,
+  'dos': /\r\n/,
   'unix': /[^\r]\n/,
-  'dos': /\r\n/
+  'mac': /\r/
 };
 
 var lineEndings = {
-  'mac': '\r',
   'unix': '\n',
-  'dos': '\r\n'
+  'dos': '\r\n',
+  'mac': '\r'
 };
 
 module.exports = exports = function(str){
