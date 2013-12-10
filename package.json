@@ -1,0 +1,16 @@
+{
+  "name": "detect-line-endings",
+  "version": "0.0.1",
+  "description": "Detect line endings for a string or stream",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js",
+    "pretest": "npm run hint",
+    "hint": "jshint --config .jshintrc ."
+  },
+  "author": "John K. Paul",
+  "license": "BSD",
+  "devDependencies": {
+    "jshint": "~2.3.0"
+  }
+}
