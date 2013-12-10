@@ -1,25 +1,19 @@
 'use strict';
 
 var regexes = {
-  'mac': /\r[^\n]/,
+  'dos': /\r\n/,
   'unix': /[^\r]\n/,
-  'dos': /\r\n/
+  'mac': /\r/
 };
 
 var lineEndings = {
-  'mac': '\r',
   'unix': '\n',
-  'dos': '\r\n'
+  'dos': '\r\n',
+  'mac': '\r'
 };
-var legacyLineEndings = [
-  'mac'
-];
 
-module.exports = exports = function(str, legacy){
+module.exports = exports = function(str){
   for(var platform in regexes){
-    if (!legacy && (platform in legacyLineEndings)){
-      continue;
-    }
     var regex = regexes[platform];
     if(regex.test(str)){
       return {
